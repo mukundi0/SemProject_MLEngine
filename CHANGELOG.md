@@ -2,6 +2,15 @@
 
 Model versions (`models/`), the `mlengine` package and the documents. Dates are 2026.
 
+## 2026-11-24: Final notebook
+
+- `LightGBM_Final.ipynb` (repository root, with a copy in `notebooks/`): the final engine reproduced and evaluated end to end, with parity checks against `mlengine` and `m5-ca1-foods@1.1.0`.
+- Removed the mobile app design spec and the Android handoff (`retail_demand_forecasting_mobile_design.md`, `MOBILE_APP_HANDOFF.md`); they are not part of the ML engine submission.
+
+## 2026-11-24: Team management removed from the docs
+
+- The handoff and the design spec note that team management and invitations were removed from the app and the backend on 23 November 2026, at the project owner's request. The spec keeps its original text with "removed" markers; the handoff drops the Team endpoints row and demo script 6. Documentation only.
+
 ## 2026-11-09: Documentation refresh and a line-ending fix
 
 - **Fix: `.gitattributes`** marks `models/**` and `tests/fixtures/**` as binary. Git for Windows (`core.autocrlf=true`) had been checking the committed LightGBM `model.txt` files out with CRLF line endings. LightGBM can't parse those, so the process died loading a model: the tests stopped silently in `test_service.py`, and an `ml` image built from such a checkout couldn't serve. Found while re-running the tests for this refresh. Existing checkouts: delete the `model.txt` files under `models/` and `git checkout -- models`.
